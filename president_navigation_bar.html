@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td, input, button {
+border: 3px solid black;
+}
+table {
+width: 20%;
+}
+th {
+height: 50px;
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #113;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: red;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111111;
+}
+</style>
+<script type="text/javascript">
+
+var inputArray = [];
+var size = 5; //Maximum Array size
+
+for(var i=0; i<size; i++) {
+
+	//Taking Input from user
+	inputArray[i] = prompt('Enter Element ' + (i+1));
+}
+
+//Print the array in the console.
+console.log(inputArray);
+
+let familymembers =[{
+  name:"mataji",
+  mob:7737320989 }];
+console.log(familymembers)
+function createTable(){
+let rows = document.getElementById("rows").value
+if (rows < 4 ){
+  console.log("invalid < 4");
+}
+
+let tableHeader = `<table>
+                 <tr>
+                   <th>name</th>
+                    <th>age</th>
+                 </tr>`
+let tableFooter = `</table>`
+let tableContent = tableHeader;
+let row = rows
+for(let i=0; i<row; i++){
+let rowOpener = `<tr>`
+let rowcloser = `</tr>`
+let rowDataOpener =`<td>`
+let rowDataCloser = `</td>`
+let row =`<tr>
+            <td>`+ familymembers[i].name + `</td>
+            <td>`+ familymembers[i].age + `</td>
+          </tr>`
+    tableContent = tableContent + row
+}
+ tableContent = tableContent + tableFooter
+ console.log(tableContent);
+ document.getElementById("dynamictable").innerHTML = tableContent;
+}
+
+</script>
+</head>
+<body>
+
+<h2>Subscribe People List</h2>
+
+<ul>
+  <li><a href="#subscribepeople">subscribepeople</a></li>
+</ul>
+
+<div id="subscribepeople">
+</div>
+
+</body>
+</html>
